@@ -1,0 +1,6 @@
+1. create vite@latest ./
+2. y
+3. React
+4. TypeScript
+5. npm install
+6. npm run dev

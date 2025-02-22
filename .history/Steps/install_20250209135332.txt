@@ -1,0 +1,10 @@
+1. npm install -D tailwindcss postcss autoprefixer
+2. npx tailwindcss init -p
+3. npm install -p tailwindcss-animate
+4. npm install react-router-dom
+5. npm i -D @types/node
+6. npx shadcn@latest init
+7. npx shadcn@latest add button
+8. npx shadcn@latest add form
+9. npx shadcn@latest add input
+10. npx shadcn@latest add label
