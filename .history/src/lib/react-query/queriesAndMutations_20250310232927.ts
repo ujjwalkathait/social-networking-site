@@ -7,6 +7,7 @@ import {
 import { createPost, createUSerAccount, deletePost, deleteSavedPost, getCurrentUser, getInfinitePosts, getInfiniteUsers, getPostById, getRecentPosts, likePost, savePost, searchPosts, signInAccount, signOutAccount, updatePost } from '../appwrite/api'
 import { INewPost, INewUser, IUpdatePost } from '@/types'
 import { QUERY_KEYS } from './queryKeys'
+import { constants } from 'buffer'
 
 export const useCreateUserAccount = () => {
     return useMutation({
@@ -157,7 +158,7 @@ export const useGetPosts = () => {
     // })
     return useInfiniteQuery({
         queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
-        queryFn: getInfinitePosts,  
+        queryFn: getInfinitePosts,
         getNextPageParam: (lastPage) => {
             if (lastPage && lastPage.documents.length === 0) return null;
 

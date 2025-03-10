@@ -382,8 +382,8 @@ export async function searchPosts(searchTerm: string) {
   }
 }
 
-export async function getInfiniteUsers({pageParam} : {pageParam: number}) {
-  const queries = [Query.limit(20)]
+export async function getInfiniteUsers({pageParam}) {
+  const queries = [Query.orderDesc('$updatedAt'), Query.limit(10)]
 
   if(pageParam){
     queries.push(Query.cursorAfter(pageParam.toString()));
@@ -392,7 +392,7 @@ export async function getInfiniteUsers({pageParam} : {pageParam: number}) {
     const users = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.postCollectionId,
-      queries,
+      [Query.limit(20)],
     );
 
     if (!users) throw Error;

@@ -392,7 +392,7 @@ export async function getInfiniteUsers({pageParam} : {pageParam: number}) {
     const users = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.postCollectionId,
-      queries,
+      [Query.limit(20)],
     );
 
     if (!users) throw Error;
