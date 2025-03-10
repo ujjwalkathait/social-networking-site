@@ -296,7 +296,7 @@ export async function updatePost(post: IUpdatePost){
 
       image = {
         ...image,
-        imageUrl: new URL(fileUrl),
+        imageUrl: fileUrl,
         imageId: uploadedFile.$id,
       }
 

@@ -55,7 +55,7 @@ export async function saveUserToDB(user: {
 
 export async function signInAccount(user: { email: string; password: string;}){
     try {
-        const session = await account.createEmailPasswordSession(user.email, user.password);
+        const session = await account.crea(user.email, user.password);
 
         return session
     } catch (error) {
@@ -123,7 +123,7 @@ export async function createPost(post: INewPost) {
         {
           creator: post.userId,
           caption: post.caption,
-          imageUrl: new URL(fileUrl),
+          imageUrl: fileUrl,
           imageId: uploadedFile.$id,
           location: post.location,
           tags: tags,
@@ -296,7 +296,7 @@ export async function updatePost(post: IUpdatePost){
 
       image = {
         ...image,
-        imageUrl: new URL(fileUrl),
+        imageUrl: fileUrl,
         imageId: uploadedFile.$id,
       }
 
