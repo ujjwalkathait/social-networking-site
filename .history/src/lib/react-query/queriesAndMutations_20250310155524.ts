@@ -144,7 +144,7 @@ export const useDeletePost = () => {
 }
 
 export const useGetPosts = () => {
-    // THIS CODE IS WORKING FOR ONLY SINGLE IMAGES
+    THIS CODE IS 
     // return useInfiniteQuery({
     //     queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
     //     queryFn: getInfinitePosts,

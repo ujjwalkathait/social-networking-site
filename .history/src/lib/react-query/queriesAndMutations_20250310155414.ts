@@ -144,17 +144,6 @@ export const useDeletePost = () => {
 }
 
 export const useGetPosts = () => {
-    // THIS CODE IS WORKING FOR ONLY SINGLE IMAGES
-    // return useInfiniteQuery({
-    //     queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
-    //     queryFn: getInfinitePosts,
-    //     getNextPageParam: (lastPage) => {
-    //         if(lastPage && lastPage.documents.length === 0) return null;
-
-    //         const lastId = lastPage?.documents[lastPage?.documents.length - 1].$id;
-    //         return lastId;
-    //     }
-    // })
     return useInfiniteQuery({
         queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
         queryFn: getInfinitePosts,
@@ -164,7 +153,7 @@ export const useGetPosts = () => {
             const lastId = lastPage?.documents[lastPage?.documents.length - 1].$id;
             return lastId ? Number(lastId) : null;
         },
-        initialPageParam: 0,
+        initialPageParam: 1,
     })
 }
 
