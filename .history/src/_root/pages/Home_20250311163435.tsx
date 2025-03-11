@@ -6,12 +6,11 @@ import { Models } from "appwrite";
 
 const Home = () => {
   const { data: posts, isPending: isPostLoading, isError: isErrorPosts } = useGetRecentPosts();
-  // FOR TOP CREATOR
-  // const {
-  //   data: creators,
-  //   isLoading: isUserLoading,
-  //   isError: isErrorCreators,
-  // } = useGetUsers(10);
+  const {
+    data: creators,
+    isLoading: isUserLoading,
+    isError: isErrorCreators,
+  } = useGetUsers(10);
   return (
     <div className='flex flex-1'>
       <div className="home-container">
@@ -28,7 +27,7 @@ const Home = () => {
           )}
         </div>
       </div>
-      {/* TOP CREATOR SECTION */}
+      {/*  */}
       {/* <div className="home-creators">
         <h3 className="h3-bold text-light-1">Top Creators</h3>
         {isUserLoading && !creators ? (

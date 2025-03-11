@@ -1,5 +1,3 @@
-import GridPostList from "@/components/shared/GridPostList";
-import Loader from "@/components/shared/Loader";
 import { useGetCurrentUser } from "@/lib/react-query/queriesAndMutations";
 import { Models } from "appwrite";
 
@@ -30,7 +28,7 @@ const Saved = () => {
       </div>
 
       {!currentUser ? (
-        <Loader />
+        <Loaderder />
       ) : (
         <ul className="w-full flex justify-center max-w-5xl gap-9">
           {savePosts.length === 0 ? (
