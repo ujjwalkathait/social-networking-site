@@ -20,20 +20,6 @@ const PostDetails = () => {
 
   return (
     <div className="post_details-container">
-      <div className="hidden md:flex max-w-5xl w-full">
-        <Button
-          onClick={() => navigate(-1)}
-          variant="ghost"
-          className="shad-button_ghost">
-          <img
-            src={"/assets/icons/back.svg"}
-            alt="back"
-            width={24}
-            height={24}
-          />
-          <p className="small-medium lg:base-medium">Back</p>
-        </Button>
-      </div>
       {isPending ? <Loader /> : (
         <div className="post_details-card">
           <img src={post?.imageUrl} alt="post" className="post_details-img" />

@@ -5,7 +5,7 @@ import { useUserContext } from "@/context/AuthContext";
 import { deletePost } from "@/lib/appwrite/api";
 import { useGetPostById } from "@/lib/react-query/queriesAndMutations"
 import { multiFormatDateString } from "@/lib/utils";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 
 const PostDetails = () => {
   const navigate = useNavigate();
@@ -14,26 +14,12 @@ const PostDetails = () => {
   const { data: post, isPending } = useGetPostById(id || '');
 
   const handleDeletePost = () => {
-    deletePost(id, post?.imageId);
-    navigate(-1);
+    deletePost({ postId: id, imageId: post?.imageId });
+    Navigate(-1);
   }
 
   return (
     <div className="post_details-container">
-      <div className="hidden md:flex max-w-5xl w-full">
-        <Button
-          onClick={() => navigate(-1)}
-          variant="ghost"
-          className="shad-button_ghost">
-          <img
-            src={"/assets/icons/back.svg"}
-            alt="back"
-            width={24}
-            height={24}
-          />
-          <p className="small-medium lg:base-medium">Back</p>
-        </Button>
-      </div>
       {isPending ? <Loader /> : (
         <div className="post_details-card">
           <img src={post?.imageUrl} alt="post" className="post_details-img" />

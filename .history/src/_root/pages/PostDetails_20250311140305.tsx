@@ -26,7 +26,7 @@ const PostDetails = () => {
           variant="ghost"
           className="shad-button_ghost">
           <img
-            src={"/assets/icons/back.svg"}
+            src={"@/assets/icons/back.svg"}
             alt="back"
             width={24}
             height={24}
