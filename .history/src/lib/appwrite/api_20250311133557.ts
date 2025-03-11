@@ -391,7 +391,7 @@ export async function getInfiniteUsers({pageParam} : {pageParam: number}) {
   try {
     const users = await databases.listDocuments(
       appwriteConfig.databaseId,
-      appwriteConfig.userCollectionId,
+      appwriteConfig.userCollectionIdCollectionId,
       queries,
     );
 
