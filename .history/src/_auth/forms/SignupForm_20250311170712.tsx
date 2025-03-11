@@ -17,6 +17,7 @@ import { useToast } from "@/hooks/use-toast"
 import { useForm } from "react-hook-form"
 import { SignupValidation } from "@/lib/validation"
 import Loader from "@/components/shared/Loader"
+import { createUSerAccount } from "@/lib/appwrite/api"
 import { useCreateUserAccount, useSignInAccount } from "@/lib/react-query/queriesAndMutations"
 import { useUserContext } from "@/context/AuthContext"
 

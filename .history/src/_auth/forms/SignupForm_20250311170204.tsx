@@ -17,6 +17,7 @@ import { useToast } from "@/hooks/use-toast"
 import { useForm } from "react-hook-form"
 import { SignupValidation } from "@/lib/validation"
 import Loader from "@/components/shared/Loader"
+import { createUSerAccount } from "@/lib/appwrite/api"
 import { useCreateUserAccount, useSignInAccount } from "@/lib/react-query/queriesAndMutations"
 import { useUserContext } from "@/context/AuthContext"
 
@@ -28,7 +29,7 @@ const SignupForm = () => {
 
   const {mutateAsync: createUserAccount, isPending : isCreatingAccount } = useCreateUserAccount();
 
-  const {mutateAsync: signInAccount, isPending: isSigningInUser} = useSignInAccount()
+  const {mutateAsync: signInAccount, isPending: isSigningIn} = useSignInAccount()
 
   const form = useForm<z.infer<typeof SignupValidation>>({
     resolver: zodResolver(SignupValidation),
@@ -42,7 +43,7 @@ const SignupForm = () => {
  
   async function onSubmit(values: z.infer<typeof SignupValidation>) {
     // create the user
-    const newUser = await createUserAccount(values);
+    const newUser = await createUSerAccount(values);
     
     if(!newUser){
       return toast({
@@ -131,7 +132,7 @@ const SignupForm = () => {
             )}
           />
           <Button type="submit" className="shad-button_primary">
-            {isCreatingAccount || isSigningInUser || isUserLoading ? (
+            {isCreatingAccount ? (
               <div className="flex-center gap-2">
                 <Loader /> Loading...
               </div>
