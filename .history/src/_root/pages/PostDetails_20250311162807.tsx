@@ -1,4 +1,3 @@
-import GridPostList from "@/components/shared/GridPostList";
 import Loader from "@/components/shared/Loader";
 import PostStats from "@/components/shared/PostStats";
 import { Button } from "@/components/ui/button";
@@ -16,9 +15,6 @@ const PostDetails = () => {
     post?.creator.$id
   );
   const { mutate: deletePost } = useDeletePost();
-  const relatedPosts = userPosts?.documents.filter(
-    (userPost) => userPost.$id !== id
-  );
   const handleDeletePost = () => {
     if (id) {
       deletePost({ postId: id, imageId: post?.imageId });
@@ -100,7 +96,7 @@ const PostDetails = () => {
         </div>
       )}
 
-      <div className="w-full max-w-5xl">
+<div className="w-full max-w-5xl">
         <hr className="border w-full border-dark-4/80" />
 
         <h3 className="body-bold md:h3-bold w-full my-10">

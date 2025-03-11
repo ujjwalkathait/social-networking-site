@@ -16,9 +16,6 @@ const PostDetails = () => {
     post?.creator.$id
   );
   const { mutate: deletePost } = useDeletePost();
-  const relatedPosts = userPosts?.documents.filter(
-    (userPost) => userPost.$id !== id
-  );
   const handleDeletePost = () => {
     if (id) {
       deletePost({ postId: id, imageId: post?.imageId });

@@ -4,7 +4,7 @@ import {
     useQueryClient,
     useInfiniteQuery,
 } from '@tanstack/react-query'
-import { createPost, createUSerAccount, deletePost, deleteSavedPost, getCurrentUser, getInfinitePosts, getInfiniteUsers, getPostById, getRecentPosts, getUserById, getUserPosts, getUsers, likePost, savePost, searchPosts, signInAccount, signOutAccount, updatePost } from '../appwrite/api'
+import { createPost, createUSerAccount, deletePost, deleteSavedPost, getCurrentUser, getInfinitePosts, getInfiniteUsers, getPostById, getRecentPosts, getUserById, getUsers, likePost, savePost, searchPosts, signInAccount, signOutAccount, updatePost } from '../appwrite/api'
 import { INewPost, INewUser, IUpdatePost } from '@/types'
 import { QUERY_KEYS } from './queryKeys'
 
@@ -120,14 +120,7 @@ export const useGetPostById = (postId: string) => {
         enabled: !!postId,
     })
 }
-export const useGetUserPosts = (userId?: string) => {
-    return useQuery({
-      queryKey: [QUERY_KEYS.GET_USER_POSTS, userId],
-      queryFn: () => getUserPosts(userId),
-      enabled: !!userId,
-    });
-  };
-  
+
 export const useUpdatePost = () => {
     const queryClient = useQueryClient();
     return useMutation({
@@ -214,5 +207,4 @@ export const useGetUserById = (userId: string) => {
       enabled: !!userId,
     });
   };
-
   
