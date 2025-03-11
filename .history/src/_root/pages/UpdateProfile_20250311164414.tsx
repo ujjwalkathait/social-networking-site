@@ -11,6 +11,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+impo
 
 import { ProfileValidation } from "@/lib/validation";
 import { useUserContext } from "@/context/AuthContext";
@@ -18,9 +19,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { useGetUserById, useUpdateUser } from "@/lib/react-query/queriesAndMutations";
-import ProfileUploader from "@/components/shared/ProfileUploader";
-import Loader from "@/components/shared/Loader";
+import { useGetUserById } from "@/lib/react-query/queriesAndMutations";
 
 const UpdateProfile = () => {
   const { toast } = useToast();
@@ -40,7 +39,7 @@ const UpdateProfile = () => {
 
   // Queries
   const { data: currentUser } = useGetUserById(id || "");
-  const { mutateAsync: updateUser, isPending: isLoadingUpdate } =
+  const { mutateAsync: updateUser, isLoading: isLoadingUpdate } =
     useUpdateUser();
 
   if (!currentUser)
