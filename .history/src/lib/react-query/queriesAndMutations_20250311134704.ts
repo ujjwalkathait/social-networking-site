@@ -4,7 +4,7 @@ import {
     useQueryClient,
     useInfiniteQuery,
 } from '@tanstack/react-query'
-import { createPost, createUSerAccount, deletePost, deleteSavedPost, getCurrentUser, getInfinitePosts, getInfiniteUsers, getPostById, getRecentPosts, getUserById, getUsers, likePost, savePost, searchPosts, signInAccount, signOutAccount, updatePost } from '../appwrite/api'
+import { createPost, createUSerAccount, deletePost, deleteSavedPost, getCurrentUser, getInfinitePosts, getInfiniteUsers, getPostById, getRecentPosts, likePost, savePost, searchPosts, signInAccount, signOutAccount, updatePost } from '../appwrite/api'
 import { INewPost, INewUser, IUpdatePost } from '@/types'
 import { QUERY_KEYS } from './queryKeys'
 
@@ -176,20 +176,20 @@ export const useSearchPosts = (searchTerm: string) => {
     })
 }
 
-// FOR INFINITE SCROLL
-// export const useGetUsers = () => {
-//     return useInfiniteQuery({
-//         queryKey: [QUERY_KEYS.GET_INFINITE_USERS],
-//         queryFn: getInfiniteUsers,
-//         getNextPageParam: (lastPage) => {
-//             if (lastPage && lastPage.documents.length === 0) return null;
+// FOR INFINITE SCROLL`
+export const useGetUsers = () => {
+    return useInfiniteQuery({
+        queryKey: [QUERY_KEYS.GET_INFINITE_USERS],
+        queryFn: getInfiniteUsers,
+        getNextPageParam: (lastPage) => {
+            if (lastPage && lastPage.documents.length === 0) return null;
 
-//             const lastId = lastPage?.documents[lastPage?.documents.length - 1].$id;
-//             return lastId ? Number(lastId) : null;
-//         },
-//         initialPageParam: 0,
-//     });
-// }
+            const lastId = lastPage?.documents[lastPage?.documents.length - 1].$id;
+            return lastId ? Number(lastId) : null;
+        },
+        initialPageParam: 0,
+    });
+}
 
 export const useGetUsers = (limit?: number) => {
     return useQuery({
