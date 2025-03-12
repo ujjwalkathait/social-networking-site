@@ -20,7 +20,6 @@ import { Models } from "appwrite"
 import { useUserContext } from "@/context/AuthContext"
 import { useToast } from "@/hooks/use-toast"
 import { useCreatePost, useUpdatePost } from "@/lib/react-query/queriesAndMutations"
-import Loader from "../shared/Loader"
 
 type PostFormProps = {
   post?: Models.Document;
@@ -138,13 +137,8 @@ const PostForm = ({ post, action }: PostFormProps) => {
           )}
         />
         <div className="flex gap-4 items-center justify-end">
-            <Button
-              type="button"
-              className="shad-button_dark_4"
-              onClick={() => navigate(-1)}>
-              Cancel
-            </Button>
-            <Button type="submit" className="shad-button_primary whitespace-nowrap" disabled={isLoadingCreate || isLoadingUpdate}>{(isLoadingCreate || isLoadingUpdate) && <Loader />}{action} Post</Button>
+            <Button type="button" className="shad-button_dark_4">Cancel</Button>
+            <Button type="submit" className="shad-button_primary whitespace-nowrap" disabled={isLoadingCreate || isLoadingUpdate}>{isLoadingCreate || isLoadingUpdate && 'Loading...'}{action} Post</Button>
         </div>
       </form>
     </Form>

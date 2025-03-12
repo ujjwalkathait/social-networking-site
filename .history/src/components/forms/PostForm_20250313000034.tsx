@@ -144,7 +144,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
               onClick={() => navigate(-1)}>
               Cancel
             </Button>
-            <Button type="submit" className="shad-button_primary whitespace-nowrap" disabled={isLoadingCreate || isLoadingUpdate}>{(isLoadingCreate || isLoadingUpdate) && <Loader />}{action} Post</Button>
+            <Button type="submit" className="shad-button_primary whitespace-nowrap" disabled={isLoadingCreate || isLoadingUpdate}>{(isLoadingCreate || isLoadingUpdate) && <Loader>}{action} Post</Button>
         </div>
       </form>
     </Form>
