@@ -65,7 +65,7 @@ const PostStats = ({ post, userId }: PostStatsProps) => {
         </div>
 
         <div className="flex gap-2">
-        {isSavingPost || isDeletingSaved ? <Loader/> : <img src={isSaved ? "/assets/icons/saved.svg" : "/assets/icons/save.svg"} alt="save" width={20} height={20} onClick={(e) => handleSavePost(e)} className="cursor-pointer"/>}
+        {isSavingPost || isDeletingSaved ? <Loader/> : <img src={isSaved ? "/assets/icons/saved.svg" : "/assets/icons/save.svg"} alt="save" width={20} height={20} onClick={handleSavePost} className="cursor-pointer"/>}
         </div>
     </div>
   )

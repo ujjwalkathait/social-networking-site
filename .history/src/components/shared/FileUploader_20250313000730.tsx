@@ -32,6 +32,7 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
                 className="file_uploader-img"
               />
             </div>
+            <img src="" alt="" />
             <p className="file_uploader-label">Click or drag photo to replace</p>
           </>
         ) : (
