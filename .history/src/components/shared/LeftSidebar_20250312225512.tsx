@@ -49,8 +49,8 @@ const LeftSidebar = () => {
                         className="h-14 w-14 rounded-full"
                     />
                     <div className="flex flex-col">
-                        <p className="body-bold">{user.name}</p>
-                        <p className="small-regular text-light-3">@{user.username}</p>
+                    <p className="body-bold">{user.name}</p>
+                    <p className="small-regular text-light-3">@{user.username}</p>
                     </div>
                 </Link>
                 )}
@@ -80,7 +80,7 @@ const LeftSidebar = () => {
         </div>
 
         <Button variant="ghost"
-            className="shad-button_ghost" onClick={(e) => handleSignOut(e)}
+            className="shad-button_ghost" onClick={() => signOut()}
         >
             <img src="/assets/icons/logout.svg"
             alt="logout" />

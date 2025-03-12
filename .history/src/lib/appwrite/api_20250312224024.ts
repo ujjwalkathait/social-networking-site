@@ -97,8 +97,14 @@ export async function signOutAccount() {
         const session = await account.deleteSession("current");
 
         return session;
-    } catch (error) {
-        console.log(error);
+    } catch (error: any) {
+      if (error.code === 401 || error.response?.status === 401) {
+        console.log("Unauthorized access. Redirecting to login...");
+        // Handle redirection or re-authentication here
+        window.location.href = '/login';
+      } else {
+        console.log("An error occurred:", error);
+      }
     }
 }
 
