@@ -60,8 +60,57 @@ const SigninForm = () => {
   };
   return (
     <Form {...form}>
-      <div className="sm:w-420 flex-center flex-col">
-        <img src="/assets/images/logo2.png" alt="logo"/>
+      <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form action="#">
+                <h1>Create An Account</h1>
+                <!-- <div class="social-container">
+                    <a href="#" class="fab fa-facebook"></a>
+                    <a href="#" class="fab fa-google"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                </div> -->
+                <span>use your email for registration</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Confirm Password">
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form action="#">
+                <h1>Sign In</h1>
+                <!-- <div class="social-container">
+                    <a href="#" class="fab fa-facebook"></a>
+                    <a href="#" class="fab fa-google"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                </div> -->
+                <span>Login to your account</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#"><u>Forget your password?</u></a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Have Already Account?</h1>
+                    <p>To keep connected with us please login with your account here!</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Create Your Account</h1>
+                    <p>Enter your personal detail and start connecting with us</p>
+                    <button class="ghost" id="signUp">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+      {/* <div className="sm:w-420 flex-center flex-col">
+        <img src="/assets/images/logo.svg" alt="logo"/>
 
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">Log in to your account</h2>
         <p className="text-light-3 small-medium md:base-regular mt-2">Welcome back! Please enter your details</p>
@@ -108,7 +157,7 @@ const SigninForm = () => {
             </Link>
           </p>
         </form>
-      </div>
+      </div> */}
     </Form>
   )
 }
